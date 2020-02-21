@@ -1,0 +1,15 @@
+server:
+  port: 15673
+spring:
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+    host: localhost
+
+# 定义交换机
+order.fanout.exchange: order.fanout
+#log队列
+order.fanout.log.queue: order.fanout.log.queue
+#mail队列
+order.fanout.mail.queue: order.fanout.mail.queue
