@@ -1,7 +1,5 @@
 ### MQ
-
-![MQs](./NoteBook/img/fourMQ.jpg)
-
+- [四种消息队列的对比](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/CompareMQ.md)
 - [为什么要学习RabbitMq](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/whyMQ.md)<br>
 - [SpringBoot整合RabbitMq](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/SpringBoot-RabbitMq.md)
 - 可靠生产
