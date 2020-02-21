@@ -1,1 +1,1 @@
-![MQs](./NoteBook/img/fourMQ.jpg)
+![MQs](../img/fourMQ.jpg)
