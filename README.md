@@ -4,6 +4,7 @@
 - [SpringBoot整合RabbitMq](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/SpringBoot-RabbitMq.md)
 - [如何进行消息队列的技术选型](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/Technology.md)
 - [如何保证消息队列高可用](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/HighAvailability.md)
+- [Kafka消费端可能出现的重复消费问题](https://github.com/Cynaith/MQ/blob/master/NoteBook/Kafka/DoubleSpending.md)
 - 可靠生产
 - 可靠消费
 - 消息转移
