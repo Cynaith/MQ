@@ -1,0 +1,13 @@
+- RabbitMQ的普通集群
+    - 流程：多个RabbitMQ进程（实例）分别部署在独立机器上，且只有一台具有某一个queue实际数据，所有实例都具有queue的元数据（结构）。消费者消费时，由RabbitMQ进行数据传输来获取具有实际数据queue的实例。
+    - 缺点
+        - 可能会在RabbitMQ集群内部产生大量的数据传输。
+        - 可用性几乎没有什么保障，如果queue所在节点宕机，就导致那个queue的数据丢失。
+- RabbitMQ的镜像集群
+    - 流程：数据在多个实例之间同步。
+    - 如何开启：RabbitMQ有管理控制台，就在后台新增一个策略，这个策略是镜像集群模式的策略，指定时候可以要求数据同步到所有节点的，也可以要求就同步到指定数量的节点，然后再次创建queue的时候，应用这个策略，就会自动将数据同步到其他节点上。
+    - 缺点：不是分布式的。queue的数据量可能会大到机器上无法容纳。
+
+- kafka高可用架构
+    -  Kafka架构认识：多个broker组成，每个broker是一个节点；你创建一个topic，这个topic可以划分为多个partition，每个partition可以存在于不同的broker上，每个partition就放一部分数据。为天然的<font color="red">分布式消息队列</font>。
+    -  Kafka 0.8版本以后，提供了HA机制，就是replica副本机制（对于每个partition而言，都有一个副本）。副本间评选leader，只有leader才可对外读写。假设某一台机器宕机了，上面的leader就没了，但是此时别的机器上还有follower，此时kafka会自己感知到leader死了，会将其他的follower给选举出来一个作为leader。
