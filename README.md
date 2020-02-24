@@ -2,6 +2,7 @@
 - [四种消息队列的对比](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/CompareMQ.md)
 - [为什么要学习RabbitMq](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/whyMQ.md)<br>
 - [SpringBoot整合RabbitMq](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/SpringBoot-RabbitMq.md)
+- [如何进行消息队列的技术选型](https://github.com/Cynaith/MQ/blob/master/NoteBook/RabbitMQ/Technology.md)
 - 可靠生产
 - 可靠消费
 - 消息转移
