@@ -3,8 +3,8 @@
 - RabbitMq接收到了消息之后先暂存在自己的内存里， 结果消费者还没来得及消费，RabbitMq就挂掉了，就导致暂存在内存里的数据丢失。
 - 消费者消费到了消息，但是还没来得及处理，自己就挂掉了，但是RabbitMQ以为这个消费者已经处理完了。
 ##### 生产者弄丢数据
-- 可以选择用RabbitMq提供的==事务功能（同步）==，就是生产者发送数据之前开启RabbitMq事务（<font color="red">channel.txSelect</font>）,然后发送消息，如果消息没有成功被RabbitMq接收到，那么生产者会收到异常报错，此时就可以回滚事务（<font color="red">channel.txRollback</font>），然后重试发送消息；如果收到了消息，那么可以提交事务（<font color="red">channel.txCommit</font>）。但是问题为事务机制是同步的，会导致生产者发送消息的吞吐量降下来。
-- 可以开启==confirm模式(异步)==。先把channel设置成confirm模式<font color="red">channel.confirm</font>，发送一个消息，发送完消息之后，RabbitMq如果接收到了这条消息，就会回调你的生产者本地的一个接口，通知你这条消息已经收到。如果未接受，也会回调你的接口，告诉你接收失败。
+- 可以选择用RabbitMq提供的<font bgcolor= "yellow">事务功能（同步）</font>，就是生产者发送数据之前开启RabbitMq事务（<font color="red">channel.txSelect</font>）,然后发送消息，如果消息没有成功被RabbitMq接收到，那么生产者会收到异常报错，此时就可以回滚事务（<font color="red">channel.txRollback</font>），然后重试发送消息；如果收到了消息，那么可以提交事务（<font color="red">channel.txCommit</font>）。但是问题为事务机制是同步的，会导致生产者发送消息的吞吐量降下来。
+- 可以开启<font bgcolor= "yellow">confirm模式(异步)</font>。先把channel设置成confirm模式<font color="red">channel.confirm</font>，发送一个消息，发送完消息之后，RabbitMq如果接收到了这条消息，就会回调你的生产者本地的一个接口，通知你这条消息已经收到。如果未接受，也会回调你的接口，告诉你接收失败。
     - 注：你要在生产者中提供一个供回调的接口的实现
         ```
                     public void ack(String messageId){
